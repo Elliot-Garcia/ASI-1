@@ -12,6 +12,8 @@
         <link rel="stylesheet" type="text/css" href="../lib/Semantic-UI-CSS-master/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="css/custom.css">
 
+        <script src="js/addCard.js"></script>
+
     </head>
 
     <body>
@@ -22,10 +24,12 @@
             <div class="column"></div>
             <div class="column">
 
-                <form class="ui form" action="./addData" method="">
+                <h3 class="ui dividing header">Add Card Information</h3>
 
-                    <h3 class="ui dividing header">Add Card Information</h3>
 
+                <form id="formAddCard" class="ui form" action="https://asi2-backend-market.herokuapp.com/card" method="POST">
+
+                 
                     <div class="field">
                         <label>Card Name</label>
                         <input type="text" name="name" >
@@ -33,7 +37,7 @@
 
                     <div class="field">
                         <label>description</label>
-                        <input type="text" name="description">
+                        <input type="text" name="description" >
                     </div>
 
                     <div class="field">
@@ -42,13 +46,28 @@
                     </div>
 
                     <div class="field">
-                        <label>Affinity</label>
-                        <select name="affinity"> </select>
+                        <label>Small URL</label>
+                        <input type="text" name="smallImgUrl">
+                    </div>
+
+                    <div class="field">
+                        <label>Famille</label>
+                        <select name="famille"> 
+                            <option value="arbre et foret">arbre et foret</option>
+                            <option value="coding machine">coding machine</option>
+                            <option value="truc chelou">truc chelou</option>
+                            <option value="gros dealos">gros dealos</option>
+                        </select>
                     </div>
 
                     <div class="field">
                         <label>Affinity</label>
-                        <select name="affinity"> </select>
+                        <select name="affinity"> 
+                            <option value="feu">feu</option>
+                            <option value="air">air</option>
+                            <option value="terre">terre</option>
+                            <option value="pas ouf">pas ouf</option>
+                        </select>
                     </div>
 
                     <div class="field">
@@ -72,25 +91,21 @@
                     </div>
 
 
-
-
-
-
-
-
                     <button class="ui button" type="reset" >Reset</button>
-                    
+
+                    <button class="ui button" type=""  onclick="getInput()" >SubmbitV2</button>
+                
                     <button class="ui button" type="submit" >Submit</button>
 
+
                 </form>
+                <button class="ui button" type="reset" >Reset</button>
+                <button class="ui button"  onclick="getInput()" >SubmbitV2</button>
+                
+
             </div>
         </div>
 
-  
-        "smallImgUrl": "https://cdn.animenewsnetwork.com/thumbnails/fit600x1000/cms/feature/89858/05.jpg",
-        "id": 11,
-        "price": 111.0,
-        "userId": null
-
+   
     </body>
 </html>
