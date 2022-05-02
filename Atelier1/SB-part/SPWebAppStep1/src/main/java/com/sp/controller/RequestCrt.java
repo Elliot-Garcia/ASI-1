@@ -8,6 +8,7 @@
   import org.springframework.web.bind.annotation.RequestMapping;
   import org.springframework.web.bind.annotation.RequestMethod;
   
+  
   @Controller // AND NOT @RestController
   public class RequestCrt {
   
@@ -16,6 +17,9 @@
   
   	private static String messageLocal="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
   
+  	@Autowired
+    PoneyDao poneyDao;
+  	
   	@RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
   	public String index(Model model) {
     
@@ -24,4 +28,11 @@
   
   		return "index";
   	}
+  	
+  	@RequestMapping(value = { "/view"}, method = RequestMethod.GET)
+    public String view(Model model) {
+    model.addAttribute("myPoney",poneyDao.getRandomPoney() );
+      return "poneyView";
+  	}
+
   }
