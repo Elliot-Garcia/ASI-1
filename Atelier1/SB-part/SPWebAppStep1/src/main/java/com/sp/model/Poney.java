@@ -17,6 +17,7 @@ public class Poney  {
 		this.name = name;
 		this.imgUrl=imgUrl;
 	}
-
-  // GETTER AND SETTER
+	public String getName(){
+		return this.getName();
+	}
 }
