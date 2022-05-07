@@ -23,7 +23,7 @@
             <div class="column"></div>
             <div class="column"></div>
             <div class="column">
-                <form class="ui form" action="./getCard" method="GET" name="mySearch">
+                <form id="mySearch" class="ui form" name="mySearch">
                     <h3 class="ui dividing header">Select the Card Name to Search</h3>
                     <div class="two fields">
                         <div class="field">
@@ -31,8 +31,8 @@
                         </div>
                         <div class="field">
                             <div class="ui transparent icon input">
-                                <input type="text" placeholder="Search..." name="search">
-                                <i class="search link icon"  onclick="mySearch.submit();"></i>
+                                <input id="searchField" type="text" placeholder="Search..." name="search">
+                                <i class="search link icon"  onclick="launchSearch()"></i>
                             </div>
                         </div>
                     </div>
@@ -41,6 +41,7 @@
             <div class="column"></div>
             <div class="column"></div>
         </div>
+
         <!------------------------------------------------------------------------->
         <!--    ----------------------------- CARD ----------------------------- -->
         <!------------------------------------------------------------------------->
@@ -49,6 +50,7 @@
             <div class="column"></div>
             <div class="column"></div>
             <div class="column">
+                <h3 id="messageSearch">Result for : nothing searched yet</h3>
                 <div class="ui special cards" id="cardContainer">
                     <template id="selectedCard">
                         <div class="card">
@@ -100,6 +102,8 @@
         <script src="../lib/jquery-3.3.1.min.js"></script>
         <script src="../lib/Semantic-UI-CSS-master/semantic.js"></script>
         <script src="js/searchCard.js"></script> 
+
+        <script src="js/findCard.js"></script> 
 
     </body>
 </html>
