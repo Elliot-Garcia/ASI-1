@@ -1,4 +1,4 @@
-package com.asi.projet.userData.controller;
+package com.asi.projet.cards.controller;
 
 public class ServiceListing {
 	

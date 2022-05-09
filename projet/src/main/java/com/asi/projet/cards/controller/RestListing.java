@@ -1,4 +1,4 @@
-package com.asi.projet.userData.controller;
+package com.asi.projet.cards.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
