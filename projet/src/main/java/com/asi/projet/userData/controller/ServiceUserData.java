@@ -17,16 +17,8 @@ private final RepositoryUserData rUserData;
 	 * requete le repository :
 	 * @return boolean : si connection ok ou non
 	 */
-	public boolean connect() {
-		//requet a la db
-		String DB = rUserData.connect();
-		
-		// determination de true false
-		if (DB.equals("OUI")) {
-			return true;
-		}
-		
-		return false;
+	public String getUserData(String idUser) {
+		return rUserData.getUserData(Integer.parseInt(idUser));
 	}
 	
 	

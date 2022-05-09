@@ -9,7 +9,7 @@ public class RepositoryUserData {
 	 * acces to DB 
 	 * @return boolean : si connection ok ou non
 	 */
-	public String connect() {
-		return "Text from DB";
+	public String getUserData(int idUser) {
+		return "Text from DB for userData";
 	}
 }
