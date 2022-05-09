@@ -1,14 +1,13 @@
 package com.asi.projet.authentification.controller;
 
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 @Service
 public class ServiceLogin {
 	
 	private final RepositoryLogin rLogin;
 	
-	ServiceLogin(RepositoryLogin repositoryLogin) {
+	public ServiceLogin(RepositoryLogin repositoryLogin) {
 		this.rLogin = repositoryLogin;
 	}
 	
@@ -18,7 +17,13 @@ public class ServiceLogin {
 	 */
 	public boolean connect() {
 		//requet a la db
+		String DB = rLogin.connect();
+		
 		// determination de true false
+		if (DB.equals("OUI")) {
+			return true;
+		}
+		
 		return false;
 	}
 	
