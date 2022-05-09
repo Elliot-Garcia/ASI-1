@@ -1,7 +1,7 @@
 package com.asi.projet.authentification.controller;
 
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -13,9 +13,8 @@ public class RestLogin {
 		this.sLogin = serviceLogin;
 	}
 	
-	@GetMapping("/login")
+	@RequestMapping(method = RequestMethod.GET, value = "/login")
 	public boolean connect() {
 		return sLogin.connect();
 	}
-
 }
