@@ -17,8 +17,10 @@ private final RepositoryLogin rLogin;
 	}
 	
 	/**
-	 * requete le repository :
-	 * @return boolean : si connection ok ou non
+	 * 
+	 * @param login
+	 * @param psw
+	 * @return
 	 */
 	public String VerifyRegister(String login, String psw) {
 		String res = null;
@@ -29,10 +31,21 @@ private final RepositoryLogin rLogin;
 		return res;
 	}
 	
+	/**
+	 * 
+	 * @param idUser
+	 * @return
+	 */
 	public String getUserInfo(String idUser) {
 		return rAccount.getUserInfo(Integer.parseInt(idUser));
 	}	
-
+	
+	/**
+	 * 
+	 * @param price
+	 * @param idUser
+	 * @return
+	 */
 	public boolean CheckBalance(int price, int idUser) {
 		boolean res = false;
 		int currentBalance = rAccount.getBalance(idUser);
@@ -42,10 +55,15 @@ private final RepositoryLogin rLogin;
 		return res;
 	}
 	
+	/**
+	 * 
+	 * @param addBalance
+	 * @param idUser
+	 * @return
+	 */
 	public int balanceAdd(int addBalance, int idUser) {
 		int currentBalance = rAccount.getBalance(idUser);
-		rAccount.changeBalance(addBalance, currentBalance);
-		return 0;
+		return rAccount.changeBalance(addBalance, currentBalance);
 	}
 }
 

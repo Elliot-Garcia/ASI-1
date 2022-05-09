@@ -19,7 +19,7 @@ public class RestAccount {
 		return sAccount.VerifyRegister(login, psw);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/account")
+	@RequestMapping(method = RequestMethod.GET, value = "/info")
 	public String showUserInfo(@RequestParam String idUser) {
 		return sAccount.getUserInfo(idUser);
 	}

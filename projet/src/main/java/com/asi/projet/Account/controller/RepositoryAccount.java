@@ -7,25 +7,47 @@ public class RepositoryAccount {
 	
 	/**
 	 * 
-	 * @return 
+	 * @return
 	 */
 	public String getUser() {
 		return "Text from DB for userData";
 	}
 	
+	/**
+	 * 
+	 * @param login
+	 * @param psw
+	 * @return
+	 */
 	public String CreateAccount(String login, String psw) {
 		return "hjhjhjhj";
 	}
 	
+	/**
+	 * 
+	 * @param idUser
+	 * @return
+	 */
 	public String getUserInfo(int idUser) {
 		return "Text from DB for userData";
 	}
 	
+	/**
+	 * 
+	 * @param idUser
+	 * @return
+	 */
 	public int getBalance(int idUser) {
 		return 0;
 	}
 	
-	public boolean changeBalance(int addBalance, int currentBalance) {
-		return true;
+	/**
+	 * 
+	 * @param addBalance
+	 * @param currentBalance
+	 * @return
+	 */
+	public int changeBalance(int addBalance, int currentBalance) {
+		return 0;
 	}
 }
