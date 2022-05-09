@@ -2,14 +2,16 @@ package com.asi.projet.cards.controller;
 
 import org.springframework.stereotype.Service;
 
+import com.asi.projet.Account.controller.RepositoryAccount;
+
 @Service
 public class ServiceInitCards {
 
-	private final RepositoryGetUser rGetUser;
+	private final RepositoryAccount rAccount;
 	private final RepositoryCards rCards;
 	
-	public ServiceInitCards(RepositoryCards repositoryCards, RepositoryGetUser repositoryGetUser) {
-		this.rGetUser = repositoryGetUser;
+	public ServiceInitCards(RepositoryCards repositoryCards, RepositoryAccount repositoryAccount) {
+		this.rAccount = repositoryAccount;
 		this.rCards = repositoryCards;
 	}
 	
@@ -20,7 +22,7 @@ public class ServiceInitCards {
 		// init index
 		int i;
 		// Récupération de l'id du User
-	    int idUser = rGetUser.getUser['id'];
+	    int idUser = rAccount.getUser()['id'];
 	    // Récupération de la liste des ids des Templates des Cartes
 	    List<int> ListIdTemplates = rCards.getTemplates();
 	    int nbTemplates = len(ListIdTemplates);
