@@ -96,8 +96,23 @@ public class ServiceCards {
 		return card.get().getId_Template();
 	}
 	
-	public void getListCards() {
-		
+	/**
+	 * 
+	 * @param idUser
+	 * @return List des cartes possédées par l'utilisateur décrit pas idUser
+	 */
+	public List<Cards> getListCardsUser(int idUser) {
+		List<Cards> res = rCards.findAllByIdUser(idUser);
+		return res;
+	}
+	
+	/**
+	 * Renvoie toutes les cartes à vendre dans le market
+	 * @return List des cartes dans le templates
+	 */
+	public List<Templates> getListCardsMarket() {
+		List<Templates> res = rTemplates.findAll();
+		return res;
 	}
 	
 }
