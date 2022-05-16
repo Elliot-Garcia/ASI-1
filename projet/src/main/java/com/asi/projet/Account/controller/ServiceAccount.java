@@ -1,6 +1,7 @@
 package com.asi.projet.Account.controller;
 
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class ServiceAccount {
 		this.rAccount = repositoryAccount;
 		this.rLogin = repositoryAuthentification;
 	}
-	
+
 	/**
 	 * 
 	 * @param login
@@ -31,7 +32,7 @@ public class ServiceAccount {
 	public User VerifyRegister(String login, String psw) {
 		int id = 1; //TODO id qui change
 		User res = null;
-		String listLogin = rLogin.getLogin(); //get login d'authentification
+		List<String> listLogin = rLogin.getLogin(); //get login d'authentification
 		if(!login.contains(" ") && !login.isBlank()) { //Le login est vide ou contient des espaces ?
 			if(!listLogin.contains(login)) { //Le login ne fais pas partit des listes utilisateurs
 				User newUser = new User(login, psw, 5000);

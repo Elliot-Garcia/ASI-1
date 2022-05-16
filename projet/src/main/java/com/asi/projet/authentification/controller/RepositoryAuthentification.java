@@ -14,14 +14,14 @@ public interface RepositoryAuthentification extends CrudRepository<User, Integer
 	 * @param int : id of the asked user
 	 * @return String : login of the asked user
 	 */
-	@Query("select login from user where user.id=$1")
+	@Query("select login from User where id=$1")
 	String getLogin(int id);
 	
 	/**
 	 * acces to DB and return all the logins
 	 * @return String : all login in DB
 	 */
-	@Query("select login from user")
+	@Query("select login from User")
 	List<String> getLogin();
 	
 	/**
@@ -29,7 +29,7 @@ public interface RepositoryAuthentification extends CrudRepository<User, Integer
 	 * @param String : login of the asked user
 	 * @return String : password of the asked user
 	 */
-	@Query("select password from user where login = $1")
+	@Query("select psw from User where login=$1")
 	String getPasswordWithLogin(String login);
 
 
@@ -38,7 +38,7 @@ public interface RepositoryAuthentification extends CrudRepository<User, Integer
 	 * @param int : id of the asked user
 	 * @return String : password of the asked user
 	 */
-	@Query("select password from user where id = id ")
+	@Query("select psw from User where id = $1 ")
 	String getPassword(int id);
 }
 

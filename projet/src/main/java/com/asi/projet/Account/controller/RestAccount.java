@@ -21,6 +21,7 @@ public class RestAccount {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/account")
 	public User Register(@RequestParam String login, @RequestParam String psw) {
+		System.out.println(login);
 		return sAccount.VerifyRegister(login, psw);
 	}
 	
