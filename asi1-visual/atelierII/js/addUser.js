@@ -10,7 +10,7 @@ function POSTHTML(){
         return;
     }
 
-    delete data["re-password"];
+    delete data["re-password"]; 
     console.log(data);
     const GET_CHUCK_URL="";
     let context =   {
@@ -23,7 +23,7 @@ function POSTHTML(){
                     };
     fetch(GET_CHUCK_URL,context)
         .then(response => response)
-            .then(response => callback(response))
+            .then(response => response)
             .catch(error => err_callback(error));
 }
 
@@ -40,6 +40,16 @@ function getInput(){
     getInput.forEach( element => data[ element.children[1].name ] = element.children[1].value)
 
     return(data);
+}
+
+/**
+* Function that log errors
+* @author   groupe2
+* @param    error of the fetched api
+* @return   none
+*/
+function err_callback(error){
+    console.log(error);
 }
 
 /**
