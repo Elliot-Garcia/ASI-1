@@ -14,6 +14,6 @@ public class RestListing {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/listing")
 	public String listCards(@RequestParam String idLister) {
-		return sListing.listCards(idLister);
+		return "NTM";//sListing.listCards(idLister);
 	}
 }

@@ -3,17 +3,17 @@ package com.asi.projet.Account.controller;
 
 import org.springframework.stereotype.Service;
 
-import com.asi.projet.authentification.controller.RepositoryLogin;
+import com.asi.projet.authentification.controller.RepositoryAuthentification;
 
 @Service
 public class ServiceAccount {
 
 private final RepositoryAccount rAccount;
-private final RepositoryLogin rLogin;
+private final RepositoryAuthentification rLogin;
 	
-	public ServiceAccount(RepositoryAccount repositoryAccount, RepositoryLogin repositoryLogin) {
+	public ServiceAccount(RepositoryAccount repositoryAccount, RepositoryAuthentification repositoryAuthentification) {
 		this.rAccount = repositoryAccount;
-		this.rLogin = repositoryLogin;
+		this.rLogin = repositoryAuthentification;
 	}
 	
 	/**
