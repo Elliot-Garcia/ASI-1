@@ -42,6 +42,6 @@ public class ServiceTransaction {
         int cardPrice = ServiceListing.getCardPrice();
         ServiceAccount.balanceAdd(cardPrice);
         Cards.deleteCard(cardId);
-        return true;
+    	return true;
     }
 }
