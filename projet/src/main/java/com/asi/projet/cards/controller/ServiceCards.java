@@ -1,6 +1,7 @@
 package com.asi.projet.cards.controller;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import com.asi.projet.cards.model.Cards;
 import com.asi.projet.cards.model.Templates;
 
 @Service
-public class ServiceInitCards {
+public class ServiceCards {
 
 	@Autowired
 	private final RepositoryAccount rAccount;
@@ -20,7 +21,7 @@ public class ServiceInitCards {
 	@Autowired
 	private final RepositoryTemplates rTemplates;
 	
-	public ServiceInitCards(RepositoryCards repositoryCards, RepositoryAccount repositoryAccount, RepositoryTemplates repositoryTemplates) {
+	public ServiceCards(RepositoryCards repositoryCards, RepositoryAccount repositoryAccount, RepositoryTemplates repositoryTemplates) {
 		this.rAccount = repositoryAccount;
 		this.rCards = repositoryCards;
 		this.rTemplates = repositoryTemplates;
@@ -41,13 +42,26 @@ public class ServiceInitCards {
 	    for (i = 0; i < 5; i++) {
 	    	int rd = new Random().nextInt(nbTemplates);
 	    	Templates rdTemplateId = ListIdTemplates.get(rd);
-	    	Cards card = new Cards();
-	    	
-	    	card.setId_User(idUser);
-	    	card.setId_Template(rdTemplateId.getIdTemplate());
-	    	rCards.save(card);
-	    	
+	    	createCard(idUser,rdTemplateId.getIdTemplate());
 	    }
+	}
+	
+	public void createCard(int idUser, int idTemplate) {
+		Cards card = new Cards();
+    	
+    	card.setId_User(idUser);
+    	card.setId_Template(idTemplate);
+    	rCards.save(card);
+	}
+	
+	public int getBuyPrice(int idTemplates) {
+		Optional<Templates> template = rTemplates.findById(idTemplates);
+		return template.get().getBuyPrice();
+	}
+	
+	public int getSellPrice(int idTemplates) {
+		Optional<Templates> template = rTemplates.findById(idTemplates);
+		return template.get().getSellPrice();
 	}
 	
 }
