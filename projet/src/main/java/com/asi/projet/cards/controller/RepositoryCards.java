@@ -1,6 +1,5 @@
 package com.asi.projet.cards.controller;
 
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import com.asi.projet.cards.model.Cards;
 

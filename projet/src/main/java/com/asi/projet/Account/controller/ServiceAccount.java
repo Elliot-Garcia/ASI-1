@@ -1,15 +1,21 @@
 package com.asi.projet.Account.controller;
 
 
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.asi.projet.Account.model.User;
 import com.asi.projet.authentification.controller.RepositoryAuthentification;
 
 @Service
 public class ServiceAccount {
 
-private final RepositoryAccount rAccount;
-private final RepositoryAuthentification rLogin;
+	@Autowired
+	private RepositoryAccount rAccount;
+	
+	private final RepositoryAuthentification rLogin;
 	
 	public ServiceAccount(RepositoryAccount repositoryAccount, RepositoryAuthentification repositoryAuthentification) {
 		this.rAccount = repositoryAccount;
@@ -22,11 +28,15 @@ private final RepositoryAuthentification rLogin;
 	 * @param psw
 	 * @return
 	 */
-	public String VerifyRegister(String login, String psw) {
-		String res = null;
+	public User VerifyRegister(String login, String psw) {
+		int id = 1; //TODO id qui change
+		User res = null;
 		String listLogin = rLogin.getLogin(); //get login d'authentification
-		if(!listLogin.contains(login)) {
-			res = rAccount.CreateAccount(login, psw);
+		if(!login.contains(" ") && !login.isBlank()) { //Le login est vide ou contient des espaces ?
+			if(!listLogin.contains(login)) { //Le login ne fais pas partit des listes utilisateurs
+				User newUser = new User(login, psw, 5000);
+				res = rAccount.save(newUser);
+			}
 		}
 		return res;
 	}
@@ -36,8 +46,14 @@ private final RepositoryAuthentification rLogin;
 	 * @param idUser
 	 * @return
 	 */
-	public String getUserInfo(String idUser) {
-		return rAccount.getUserInfo(Integer.parseInt(idUser));
+	public User getUserInfo(String idUser) {
+		Optional<User> uOpt = rAccount.findById(Integer.parseInt(idUser));
+		
+		if (uOpt.isPresent()) {
+			return uOpt.get();
+		}else {
+			return null;
+		}
 	}	
 	
 	/**
@@ -48,7 +64,8 @@ private final RepositoryAuthentification rLogin;
 	 */
 	public boolean CheckBalance(int price, int idUser) {
 		boolean res = false;
-		int currentBalance = rAccount.getBalance(idUser);
+		User u = getUserInfo(Integer.toString(idUser));
+		int currentBalance = u.getBalance();
 		if(currentBalance>=price) {
 			res = true;
 		}
@@ -62,8 +79,12 @@ private final RepositoryAuthentification rLogin;
 	 * @return
 	 */
 	public int balanceAdd(int addBalance, int idUser) {
-		int currentBalance = rAccount.getBalance(idUser);
-		return rAccount.changeBalance(addBalance, currentBalance);
+		User u = getUserInfo(Integer.toString(idUser));
+		int currentBalance = u.getBalance();
+		int newBalance = addBalance + currentBalance;
+		u.setBalance(newBalance);
+		rAccount.save(u);
+		return newBalance;
 	}
 }
 

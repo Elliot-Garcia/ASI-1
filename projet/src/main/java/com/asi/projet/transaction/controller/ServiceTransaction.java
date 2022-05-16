@@ -1,6 +1,9 @@
 package com.asi.projet.transaction.controller;
 
+import com.asi.projet.Account.controller.ServiceAccount;
+import com.asi.projet.cards.controller.RepositoryCards;
 import com.asi.projet.cards.controller.ServiceListing;
+import com.asi.projet.cards.model.Cards;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,11 +22,11 @@ public class ServiceTransaction {
     public boolean buy(BuyBody body) {
         int userId = body.getUserId();
         int cardTemplateId = body.getCardTemplateId();
-        int cardPrice = ServiceListing.getCardPrice();
-        boolean enoughBalance = ServiceAccount.checkBalance();
+        int cardTemplateBuyPrice = ServiceListing.getBuyPrice(cardTemplateId);
+        boolean enoughBalance = ServiceAccount.CheckBalance(cardTemplateBuyPrice, userId);
         if (enoughBalance){
-            ServiceAccount.balanceAdd(-cardPrice);
-            RepositoryCards.createCard(cardTemplateId, userId);
+            ServiceAccount.balanceAdd(-cardPrice, userId);
+            RepositoryCards.createCard(userId, cardTemplateId);
         }
         return enoughBalance;
     }
@@ -39,8 +42,9 @@ public class ServiceTransaction {
     public boolean sell(SellBody body) {
         int userId = body.getUserId();
         int cardId = body.getCardId();
-        int cardPrice = ServiceListing.getCardPrice();
-        ServiceAccount.balanceAdd(cardPrice);
+        int cardTemplateId = ServiceCards.getTemplateFromCard(cardId);
+        int cardPrice = ServiceListing.getCardSellPrice(cardTemplateId);
+        ServiceAccount.balanceAdd(cardPrice, userId);
         Cards.deleteCard(cardId);
     	return true;
     }
