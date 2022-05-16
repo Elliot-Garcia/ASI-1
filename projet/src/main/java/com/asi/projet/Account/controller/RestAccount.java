@@ -1,5 +1,8 @@
 package com.asi.projet.Account.controller;
 
+import javax.websocket.server.PathParam;
+
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,8 +24,8 @@ public class RestAccount {
 		return sAccount.VerifyRegister(login, psw);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/info")
-	public User showUserInfo(@RequestParam int idUser) {
-		return sAccount.getUserInfo(idUser);
+	@RequestMapping(method = RequestMethod.GET, value = "/info/{id}")
+	public User showUserInfo(@PathVariable String id) {
+		return sAccount.getUserInfo(id);
 	}
 }

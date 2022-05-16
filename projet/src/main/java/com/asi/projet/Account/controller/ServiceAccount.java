@@ -34,7 +34,7 @@ public class ServiceAccount {
 		String listLogin = rLogin.getLogin(); //get login d'authentification
 		if(!login.contains(" ") && !login.isBlank()) { //Le login est vide ou contient des espaces ?
 			if(!listLogin.contains(login)) { //Le login ne fais pas partit des listes utilisateurs
-				User newUser = new User(id, login, psw, 5000);
+				User newUser = new User(login, psw, 5000);
 				res = rAccount.save(newUser);
 			}
 		}
@@ -46,8 +46,8 @@ public class ServiceAccount {
 	 * @param idUser
 	 * @return
 	 */
-	public User getUserInfo(int idUser) {
-		Optional<User> uOpt = rAccount.findById(idUser);
+	public User getUserInfo(String idUser) {
+		Optional<User> uOpt = rAccount.findById(Integer.parseInt(idUser));
 		
 		if (uOpt.isPresent()) {
 			return uOpt.get();
@@ -64,7 +64,7 @@ public class ServiceAccount {
 	 */
 	public boolean CheckBalance(int price, int idUser) {
 		boolean res = false;
-		User u = getUserInfo(idUser);
+		User u = getUserInfo(Integer.toString(idUser));
 		int currentBalance = u.getBalance();
 		if(currentBalance>=price) {
 			res = true;
@@ -79,7 +79,7 @@ public class ServiceAccount {
 	 * @return
 	 */
 	public int balanceAdd(int addBalance, int idUser) {
-		User u = getUserInfo(idUser);
+		User u = getUserInfo(Integer.toString(idUser));
 		int currentBalance = u.getBalance();
 		int newBalance = addBalance + currentBalance;
 		u.setBalance(newBalance);
