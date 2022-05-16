@@ -64,4 +64,9 @@ public class ServiceCards {
 		return template.get().getSellPrice();
 	}
 	
+	public int getTemplateFromCard(int idCard) {
+		Optional<Cards> card = rCards.findById(idCard);
+		return card.get().getId_Template();
+	}
+	
 }
