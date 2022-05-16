@@ -28,7 +28,7 @@ public class ServiceCards {
 	}
 	
 	/**
-	 * @return String : Json list des cartes
+	 * Initialise les 5 premières cartes d'un utilisateur à la création de son compte à partir d'un tirage aléatoire de Templates.
 	 */
 	public void initCards() {
 		// init index
@@ -46,27 +46,58 @@ public class ServiceCards {
 	    }
 	}
 	
+	/**
+	 * Créé une carte dans la database pour un utilisateur décrit pas idUser.
+	 * @param idUser
+	 * @param idTemplate
+	 */
 	public void createCard(int idUser, int idTemplate) {
 		Cards card = new Cards();
-    	
     	card.setId_User(idUser);
     	card.setId_Template(idTemplate);
     	rCards.save(card);
 	}
 	
+	/**
+	 * Supprime de la database la carte décrite par idCard
+	 * @param idCard
+	 */
+	public void deleteCard(int idCard) {
+		Cards card = rCards.findById(idCard).get();
+		rCards.delete(card);
+	}
+	
+	/**
+	 * @param idTemplates
+	 * @return Prix d'achat de la carte
+	 */
 	public int getBuyPrice(int idTemplates) {
 		Optional<Templates> template = rTemplates.findById(idTemplates);
 		return template.get().getBuyPrice();
 	}
 	
+	/**
+	 * 
+	 * @param idTemplates
+	 * @return Prix de vente de la carte
+	 */
 	public int getSellPrice(int idTemplates) {
 		Optional<Templates> template = rTemplates.findById(idTemplates);
 		return template.get().getSellPrice();
 	}
 	
+	/**
+	 * 
+	 * @param idCard
+	 * @return id du Template lié à la carte
+	 */
 	public int getTemplateFromCard(int idCard) {
 		Optional<Cards> card = rCards.findById(idCard);
 		return card.get().getId_Template();
+	}
+	
+	public void getListCards() {
+		
 	}
 	
 }
