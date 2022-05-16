@@ -16,9 +16,9 @@ public class User {
 	public User() {
 	}
 
-	public User(int id,String login, String psw, int balance) {
+	public User(String login, String psw, int balance) {
 		super();
-		this.id=id;
+		this.id=0;
 		this.login = login;
 		this.psw = psw;
 		this.balance = balance;
