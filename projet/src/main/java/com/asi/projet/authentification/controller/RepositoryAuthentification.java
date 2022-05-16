@@ -17,6 +17,16 @@ public class RepositoryAuthentification {
 	}
 	
 	/**
+	 * acces to DB and return all the logins
+	 * @return String : all login in DB
+	 */
+	public String getLogin() {
+		// select login from user
+		String ret = "all login";
+		return ret;
+	}
+	
+	/**
 	 * acces to DB and return the asked password
 	 * @param String : login of the asked user
 	 * @return String : password of the asked user
