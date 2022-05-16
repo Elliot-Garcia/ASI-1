@@ -8,7 +8,7 @@ import com.asi.projet.cards.model.Cards;
 
 public interface RepositoryCards extends CrudRepository<Cards, Integer> {
 	
-	@Query("Select * FROM Cards WHERE Cards.id_User = ?1")
+	@Query("Select c FROM Cards c WHERE c.id_User = ?1")
 	List<Cards> findAllByIdUser(int idUser);
 	
 }
