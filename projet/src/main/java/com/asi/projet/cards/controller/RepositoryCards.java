@@ -8,6 +8,15 @@ import com.asi.projet.cards.model.Cards;
 
 public interface RepositoryCards extends CrudRepository<Cards, Integer> {
 
-	@Query("SELECT t.id_templates FROM templates t")
-	List getTemplates();
+	@Query("")
+	Cards createCard();
+	
+	@Query("")
+	Cards deleteCard();
+	
+	@Query("SELECT * FROM cards c WHERE c.id_Card=?1")
+	Cards getCard(int id_card);
+	
+	//@Query("SELECT t.id_templates FROM templates t")
+	//List<Cards> getTemplates();
 }
