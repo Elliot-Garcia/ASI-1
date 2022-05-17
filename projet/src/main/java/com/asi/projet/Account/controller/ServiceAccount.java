@@ -30,7 +30,6 @@ public class ServiceAccount {
 	 * @return
 	 */
 	public User VerifyRegister(String login, String psw) {
-		int id = 1; //TODO id qui change
 		User res = null;
 		List<String> listLogin = rLogin.getLogin(); //get login d'authentification
 		if(!login.contains(" ") && !login.isBlank()) { //Le login est vide ou contient des espaces ?
