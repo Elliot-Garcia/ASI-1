@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.asi.projet.Account.model.User;
 import com.asi.projet.authentification.controller.RepositoryAuthentification;
+import com.asi.projet.cards.controller.RepositoryCards;
+import com.asi.projet.cards.controller.ServiceCards;
 
 @Service
 public class ServiceAccount {
@@ -17,10 +19,12 @@ public class ServiceAccount {
 	private RepositoryAccount rAccount;
 	
 	private final RepositoryAuthentification rLogin;
+	 private final ServiceCards sCards;
 	
-	public ServiceAccount(RepositoryAccount repositoryAccount, RepositoryAuthentification repositoryAuthentification) {
+	public ServiceAccount(RepositoryAccount repositoryAccount, RepositoryAuthentification repositoryAuthentification, ServiceCards serviceCards) {
 		this.rAccount = repositoryAccount;
 		this.rLogin = repositoryAuthentification;
+		this.sCards = serviceCards;
 	}
 
 	/**
@@ -36,6 +40,7 @@ public class ServiceAccount {
 			if(!listLogin.contains(login)) { //Le login ne fais pas partit des listes utilisateurs
 				User newUser = new User(login, psw, 5000);
 				res = rAccount.save(newUser);
+				//sCards.initCards(res.getId());
 			}
 		}
 		return res;
@@ -54,7 +59,8 @@ public class ServiceAccount {
 		}else {
 			return null;
 		}
-	}	
+	}
+	
 	
 	/**
 	 * 
