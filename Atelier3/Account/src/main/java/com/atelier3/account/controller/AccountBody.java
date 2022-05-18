@@ -5,6 +5,8 @@ public class AccountBody {
 	private String login;
 	private String password;
 	
+	
+	
 	public AccountBody() {
 		
 	}

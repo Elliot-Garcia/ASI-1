@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import com.model.AccountDto;
+
 @Entity
 public class User {
 
@@ -25,7 +27,7 @@ public class User {
 		this.balance = balance;
 	}
 
-	public Integer getId() {
+	public Integer geAccountBodytId() {
 		return id;
 	}
 
@@ -56,5 +58,9 @@ public class User {
 	public void setBalance(int balance) {
 		this.balance = balance;
 	}
+	
+	//public AccountDto toDto() {
+	
+	//}
 
 }
