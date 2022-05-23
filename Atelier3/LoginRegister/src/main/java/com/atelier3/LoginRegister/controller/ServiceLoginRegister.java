@@ -39,8 +39,6 @@ public class ServiceLoginRegister {
 		String result = response.getBody();
 		
 		
-		
-		
 		User res = null;
 		List<String> listLogin = rLogin.getLogin(); //get login d'authentification
 		if(!login.contains(" ") && !login.isBlank()) { //Le login est vide ou contient des espaces ?
