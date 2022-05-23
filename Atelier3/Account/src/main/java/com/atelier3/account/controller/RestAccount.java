@@ -16,14 +16,15 @@ public class RestAccount {
 		this.sAccount = serviceAccount;
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/account")
-	public User Register(@RequestBody AccountBody account) {
-		return sAccount.VerifyRegister(account.getLogin(), account.getPassword());
-	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/info/{id}")
 	public User showUserInfo(@PathVariable String id) {
 		return sAccount.getUserInfo(id);
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/add/{id}")
+	public User addUser(@PathVariable String id) {
+		return sAccount.addUser(id);
 	}
 
 }
