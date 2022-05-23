@@ -1,13 +1,14 @@
-package com.atelier3.account.controller;
+package com.atelier3.LoginRegister.controller;
 
-public class AccountBody {
+public class RegistertBody {
+	
 	
 	private String login;
 	private String password;
 	
 	
 	
-	public AccountBody() {
+	public RegistertBody() {
 		
 	}
 	
@@ -23,5 +24,7 @@ public class AccountBody {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+
 
 }

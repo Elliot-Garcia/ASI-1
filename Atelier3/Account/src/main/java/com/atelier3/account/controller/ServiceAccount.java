@@ -16,13 +16,17 @@ public class ServiceAccount {
 	}
 
 
-	public User VerifyRegister(String login, String password) {
+
+
+	public User getUserInfo(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
-	public User getUserInfo(String id) {
+
+
+	public User addUser(String id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

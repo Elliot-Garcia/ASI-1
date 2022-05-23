@@ -1,13 +1,26 @@
 package com.model;
 
 public class AccountDto {
-		private String name;
+		private String login;
+		private String id;
+		
 		public AccountDto() {
 		}
-		public String getName() {
-			return name;
+
+		public String getLogin() {
+			return login;
 		}
-		public void setName(String name) {
-			this.name = name;
+
+		public void setLogin(String login) {
+			this.login = login;
 		}
+
+		public String getId() {
+			return id;
+		}
+
+		public void setId(String id) {
+			this.id = id;
+		}
+
 }
