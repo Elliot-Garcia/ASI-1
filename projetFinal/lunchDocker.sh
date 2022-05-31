@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cp nginx.conf /var/tmp/$USER/nginx.conf
+mkdir -p /tmp/$USER
+cp -r nginx /tmp/$USER/nginx
 
-docker run -it --rm --name my-custom-nginx-container --network host -v /var/tmp/$USER/nginx.conf:/etc/nginx.conf:ro nginx
-
+docker run -it --rm --name my-custom-nginx-container --network host -v /tmp/$USER/nginx/conf.d:/etc/nginx/conf.d:ro nginx
