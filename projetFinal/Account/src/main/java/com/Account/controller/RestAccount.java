@@ -16,7 +16,9 @@ public class RestAccount {
 	private final ServiceAccount sAccount;
 	
 	public RestAccount(ServiceAccount serviceAccount) {
+		System.out.println("OUI");
 		this.sAccount = serviceAccount;
+		
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/account")
@@ -28,5 +30,6 @@ public class RestAccount {
 	public AccountDTO showUserInfo(@PathVariable String id) {
 		return sAccount.getUserInfo(id);
 	}
+
 
 }

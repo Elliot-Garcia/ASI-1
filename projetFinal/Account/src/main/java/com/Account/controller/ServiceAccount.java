@@ -12,12 +12,14 @@ import com.AccountDTO.AccountDTO;
 @Service
 public class ServiceAccount {
 	
-	@Autowired
 	private RepositoryAccount rAccount;
 	
+
 	public ServiceAccount(RepositoryAccount repositoryAccount) {
-		this.rAccount = repositoryAccount;
+		System.out.println("OUI");
+		//this.rAccount = repositoryAccount;
 	}
+
 
 	public List<AccountDTO> getUsers() {
 	    List<AccountDTO> listAccount = (List<AccountDTO>) rAccount.findAll();
@@ -33,5 +35,6 @@ public class ServiceAccount {
 			return null;
 		}
 	}
+
 
 }
