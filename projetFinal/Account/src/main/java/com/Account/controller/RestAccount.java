@@ -17,16 +17,17 @@ public class RestAccount {
 	
 	public RestAccount(ServiceAccount serviceAccount) {
 		this.sAccount = serviceAccount;
-		
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/account")
+	@RequestMapping(method = RequestMethod.GET)
 	public List<AccountDTO> GetAllAccount() {
+		System.out.println("OUI");
 		return sAccount.getUsers();
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/info/{id}")
 	public AccountDTO showUserInfo(@PathVariable String id) {
+		System.out.println("OUI++");
 		return sAccount.getUserInfo(id);
 	}
 

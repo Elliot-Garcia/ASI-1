@@ -27,7 +27,28 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>	
+			<groupId>com.AccountDTO</groupId>
+			<artifactId>AccountDTO</artifactId>
+			<version>0.0.1-SNAPSHOT</version> 
+  		</dependency>
+  		
+  		<dependency>	
+			<groupId>com.TemplateDTO</groupId>
+			<artifactId>TemplateDTO</artifactId>
+			<version>0.0.1-SNAPSHOT</version> 
+  		</dependency>
+  		
+  		<dependency>	
+			<groupId>com.CardsDTO</groupId>
+			<artifactId>CardsDTO</artifactId>
+			<version>0.0.1-SNAPSHOT</version> 
+    	</dependency>	
+  
 	</dependencies>
+
+
 
 	<build>
 		<plugins>

@@ -16,8 +16,7 @@ public class ServiceAccount {
 	
 
 	public ServiceAccount(RepositoryAccount repositoryAccount) {
-		System.out.println("OUI");
-		//this.rAccount = repositoryAccount;
+		this.rAccount = repositoryAccount;
 	}
 
 
