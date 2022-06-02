@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.AccountDTO.AccountDTO;
+import com.AccountDTO.AccountFormDTO;
+
 
 @RestController
 public class RestAuthentification {
@@ -17,9 +19,11 @@ public class RestAuthentification {
 	}
 
 	@RequestMapping
-	public AccountDTO Register() {
+	public AccountFormDTO Register(@RequestBody AccountFormDTO account) {
 		System.out.println("OUI");
-		return null;
-		//return sAuthentification.VerifyRegister(body.getLogin(), body.getPassword());
+		return sAuthentification.VerifyRegister(account.getLogin(), account.getPassword());//sAuthentification.VerifyRegister("test", "testpsw");
+		//return 
+		//
+		//account.getLogin(), account.getPassword()
 	}
 }
