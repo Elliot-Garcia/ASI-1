@@ -22,18 +22,24 @@ public class ServiceAccount {
 
 
 	public List<AccountDTO> getUsers() {
+		/**
 	    List<AccountDTO> listAccount = (List<AccountDTO>) rAccount.findAll();
 		return listAccount;
+		*/
+		return null;
+		
 	}
 	
 	public AccountDTO getUserInfo(String idUser) {
+		/**
 		Optional<AccountDTO> uOpt = rAccount.findById(Integer.parseInt(idUser)); 
 		
 		if (uOpt.isPresent()) {
 			return uOpt.get();
 		}else {
 			return null;
-		}
+		}*/
+		return null;
 	}
 
 

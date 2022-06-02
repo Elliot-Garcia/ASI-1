@@ -16,7 +16,6 @@ public class RestAccount {
 	private final ServiceAccount sAccount;
 	
 	public RestAccount(ServiceAccount serviceAccount) {
-		System.out.println("OUI");
 		this.sAccount = serviceAccount;
 		
 	}
