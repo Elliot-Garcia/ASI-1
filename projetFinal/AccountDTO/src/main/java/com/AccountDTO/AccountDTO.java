@@ -3,8 +3,15 @@ package com.AccountDTO;
 public class AccountDTO {
 		private String login;
 		private String id;
+		private int balance;
 		
 		public AccountDTO() {
+			
+		}
+		public AccountDTO(String login, String id, int balance) {
+			this.login = login;
+			this.id = id;
+			this.balance = balance;
 		}
 
 		public String getLogin() {
@@ -21,6 +28,14 @@ public class AccountDTO {
 
 		public void setId(String id) {
 			this.id = id;
+		}
+
+		public int getBalance() {
+			return balance;
+		}
+
+		public void setBalance(int balance) {
+			this.balance = balance;
 		}
 
 }
