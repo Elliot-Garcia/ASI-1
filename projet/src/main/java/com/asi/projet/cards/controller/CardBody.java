@@ -15,6 +15,6 @@ public class CardBody {
 	public void setIdUser(int idUser) {
 		this.idUser = idUser;
 	}
-	
+
 
 }
