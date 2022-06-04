@@ -1,6 +1,6 @@
 package com.Transaction.controller.request;
 
-import com.Transaction.controller.body.AccountBody;
+import com.AccountDTO.AccountDTO;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -11,11 +11,10 @@ import org.springframework.web.client.RestTemplate;
 public class RequestToAccount {
     final String uri = "localhost:8080/account";
 
-    public AccountBody getAccount(int cardId) {
+    public AccountDTO getAccount(int cardId) {
         String url = uri +"/"+Integer.toString(cardId);
         RestTemplate restTemplate = new RestTemplate();
-        AccountBody result = restTemplate.getForObject(uri, AccountBody.class);
-        return result;
+        return restTemplate.getForObject(uri, AccountDTO.class);
     }
 
     public void addBalance(int userId, int amount){

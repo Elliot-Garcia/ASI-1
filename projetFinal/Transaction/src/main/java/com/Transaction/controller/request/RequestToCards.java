@@ -1,6 +1,6 @@
 package com.Transaction.controller.request;
 
-import com.Transaction.controller.body.CardBody;
+import com.CardsDTO.CardsDTO;
 import org.json.JSONObject;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -13,11 +13,10 @@ public class RequestToCards {
 
     final String uri = "localhost:8080/cards";
 
-    public CardBody getCard(int cardId) {
+    public CardsDTO getCard(int cardId) {
         String url = uri +"/"+Integer.toString(cardId);
         RestTemplate restTemplate = new RestTemplate();
-        CardBody result = restTemplate.getForObject(uri, CardBody.class);
-        return result;
+        return restTemplate.getForObject(uri, CardsDTO.class);
     }
 
     public void deleteCard(int cardId){
@@ -40,7 +39,7 @@ public class RequestToCards {
         HttpEntity<String> request =
                 new HttpEntity<String>(jsonObject.toString(), headers);
 
-        restTemplate.postForObject(uri, request, CardBody.class);
+        restTemplate.postForObject(uri, request, CardsDTO.class);
     }
 
 }

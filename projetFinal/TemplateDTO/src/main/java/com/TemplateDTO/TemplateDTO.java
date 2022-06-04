@@ -1,6 +1,6 @@
-package com.Transaction.controller.body;
+package com.TemplateDTO;
 
-public class TemplateBody {
+public class TemplateDTO {
     private Integer idTemplate;
     private String Name;
     private Integer Stat1;
@@ -37,5 +37,5 @@ public class TemplateBody {
     public void setSellPrice(Integer sellPrice) {
         SellPrice = sellPrice;
     }
-    public TemplateBody(){}
+    public TemplateDTO(){}
 }
