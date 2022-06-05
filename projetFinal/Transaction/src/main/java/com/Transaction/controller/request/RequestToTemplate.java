@@ -6,7 +6,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class RequestToTemplate {
-    final String uri = "localhost:8083";
+    final String uri = "http://localhost:8083";
 
     public TemplateDTO getTemplate(int templateId) {
         String url = uri +"/"+ templateId;

@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class RequestToAccount {
-    final String uri = "localhost:8081/account";
+    final String uri = "http://localhost:8081/account";
 
     public AccountDTO getAccount(int cardId) {
         String url = uri +"/"+ cardId;

@@ -38,7 +38,7 @@ public class ServiceTransaction {
             rtAccount.addBalance(userId, -cardTemplateBuyPrice);
             rtCards.createCard(userId, templateId);
         }
-        return false;
+        return true;
     }
 
     /**
