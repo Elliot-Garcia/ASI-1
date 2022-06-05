@@ -1,12 +1,15 @@
 function getCardList(){
-
-    let URL="";
+    const userId = getIdUser();
+    let URL="localhost:80/cards/deck";
     let context =   {
                         method: 'GET',
                         headers: {
                             'Accept': 'application/json',
                             'Content-Type': 'application/json'
-                          }
+                          },
+                        body: {
+                            'id_User': userId
+                        }
                     };
     fetch(URL,context)
         .then(response => response)
@@ -41,7 +44,7 @@ function editList(cardList){
 
 function buyCard(idCard){
     const userId = getIdUser();
-    const GET_CHUCK_URL="" + userId + "/" + idCard;
+    const GET_CHUCK_URL="localhost:80/transaction/buy/" + userId + "/" + idCard;
     let context =   {
                         method: 'POST',
                         headers: {
@@ -79,7 +82,7 @@ function getUserInfo(){
         location.replace("userChoice.html")
         return;
     }
-    let URL="" + "/" + id;
+    let URL="localhost:80/account" + "/" + id;
     let context =   {
                         method: 'GET',
                         headers: {

@@ -12,7 +12,7 @@ function getUserInfo(){
         location.replace("userChoice.html")
         return;
     }
-    let URL="" + "/" + id;
+    let URL="localhost:80/account" + "/" + id;
     let context =   {
                         method: 'GET',
                         headers: {

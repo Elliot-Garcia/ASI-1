@@ -1,6 +1,6 @@
 function getCardList(){
 
-    let URL="";
+    let URL="localhost:80/template";
     let context =   {
                         method: 'GET',
                         headers: {
@@ -80,7 +80,7 @@ function getUserInfo(){
         location.replace("userChoice.html")
         return;
     }
-    let URL="" + "/" + id;
+    let URL="localhost:80/account" + "/" + id;
     let context =   {
                         method: 'GET',
                         headers: {

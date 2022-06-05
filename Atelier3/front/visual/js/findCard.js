@@ -6,9 +6,13 @@
 */
 function launchSearch(){
 
-    const GET_CHUCK_URL="https://asi2-backend-market.herokuapp.com/cards"; 
+    const GET_CHUCK_URL="localhost:80/template"; 
     let context =   {
-                        method: 'GET'
+                        method: 'GET',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                          }
                     };
         
     fetch(GET_CHUCK_URL,context)
