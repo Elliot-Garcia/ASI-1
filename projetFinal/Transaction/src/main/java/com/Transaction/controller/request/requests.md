@@ -3,13 +3,13 @@
 ## Requêtes à cards
 - getCard (body contient **templateId** + ...)
   - Type `GET`
-  - Chemin `/cards/{cardId}`
+  - Chemin `/cards/card/{cardId}`
 - deleteCard
   - Type`DELETE`
-  - Chemin `/cards/{cardId}`
+  - Chemin `/cards/card/{cardId}`
 - createCard
   - Type `POST`
-  - Chemin `/cards` 
+  - Chemin `/cards/card` 
   - Body: `templateId`, `userId`
 
 ## Requêtes à account

@@ -1,7 +1,14 @@
 package com.CardsDTO;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class CardsDTO {
 
+	@Id
+	@GeneratedValue
 	private Integer id_Card;
 	private Integer id_User;
 	private Integer id_Template;
