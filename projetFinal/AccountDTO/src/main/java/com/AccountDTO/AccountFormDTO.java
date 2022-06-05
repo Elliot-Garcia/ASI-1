@@ -1,6 +1,7 @@
 package com.AccountDTO;
 
 public class AccountFormDTO {
+
 	private String login;
 	private String password;
 	private int balance;
