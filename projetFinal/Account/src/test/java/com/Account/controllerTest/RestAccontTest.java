@@ -31,7 +31,7 @@ import com.AccountDTO.AccountFormDTO;
 @WebMvcTest(value = RestAccount.class)
 @WithMockUser
 public class RestAccontTest {
-	/**
+	
 	@Autowired
 	private MockMvc mockMvc;
 
@@ -86,6 +86,6 @@ public class RestAccontTest {
 				response.getHeader(HttpHeaders.LOCATION));
 
 	}
-*/
+
 	
 }
