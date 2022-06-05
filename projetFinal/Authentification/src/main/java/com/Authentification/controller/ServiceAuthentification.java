@@ -1,17 +1,13 @@
 package com.Authentification.controller;
 
-import java.util.Arrays;
-import java.util.List;
-
+import com.AccountDTO.AccountFormDTO;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.AccountDTO.AccountDTO;
-import com.AccountDTO.AccountFormDTO;
+import java.util.Objects;
 
 @Service
 public class ServiceAuthentification {
@@ -29,7 +25,7 @@ public class ServiceAuthentification {
 		String result = restTemplate.getForObject(URL_ACCOUNT, String.class);
 
 		if(!login.contains(" ") && !login.isBlank()) { //Le login est vide ou contient des espaces ?
-			if(!(result == login)) { //result.contains(login)  Le login ne fais pas partit des listes utilisateurs
+			if(!(Objects.equals(result, login))) { //result.contains(login)  Le login ne fais pas partit des listes utilisateurs
 				newUser = new AccountFormDTO(login, password, 5000);
 				System.out.println("user = "+newUser);
 				System.out.println(newUser.getLogin()+" "+newUser.getBalance() +" "+newUser.getPassword());
@@ -55,36 +51,10 @@ public class ServiceAuthentification {
 			         System.out.println("Something error!");
 			      }
 				
-				//res = rAccount.save(newUser); //TODO: REQUETE AU SERVICE ACCOUT
-				//sCards.initCards(res.getId());
+				
 			}
 		}
-		/**
-		AccountFormDTO res = null;
-		List<String> listLogin = rLogin.getLogin(); //get login d'authentification
-	
-		//return res;
-		 */
+		
 		return newUser;
 	}
 }
-/**	
-	headers.setAccept(Arrays.asList(new MediaType[] { MediaType.APPLICATION_JSON }));
-	// Request to return JSON format
-	headers.setContentType(MediaType.APPLICATION_JSON);
-	//headers.set("my_other_key", "my_other_value");
-
-	// HttpEntity<String>: To get result as String.
-	AccountFormDTO aform; 
-	return null;
-	HttpEntity<AccountFormDTO> entity = new HttpEntity<String>(aform,headers);
-
-	// Send request with GET method, and Headers.
-	
-	ResponseEntity<String> response = restTemplate.postForEntity(URL_ACCOUNT, entity, AccountForm.class);
-	
-//	ResponseEntity<String> response = restTemplate.exchange(URL_ACCOUNT, //
-//			HttpMethod.GET, entity, String.class);
-
-	String result = response.getBody();
-*/

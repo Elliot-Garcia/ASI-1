@@ -22,8 +22,6 @@ public class RestAuthentification {
 	public AccountFormDTO Register(@RequestBody AccountFormDTO account) {
 		System.out.println("OUI");
 		return sAuthentification.VerifyRegister(account.getLogin(), account.getPassword());//sAuthentification.VerifyRegister("test", "testpsw");
-		//return 
-		//
-		//account.getLogin(), account.getPassword()
+
 	}
 }
