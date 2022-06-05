@@ -7,6 +7,7 @@
 function POSTHTML(){
     const GET_CHUCK_URL="https://asi2-backend-market.herokuapp.com/card"; 
     const data = getInput();
+    console.log(data);
     let context =   {
                         method: 'POST',
                         headers: {
