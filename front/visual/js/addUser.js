@@ -33,6 +33,7 @@ function success(response){
         setMessage( "Ajout refuser");
         return;
     }
+    localStorage.setItem("userId", response.id);
     setMessage("Ajout réusit");
     location.replace("hub.html");
 }
