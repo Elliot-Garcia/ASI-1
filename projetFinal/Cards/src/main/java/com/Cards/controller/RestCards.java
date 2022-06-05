@@ -1,12 +1,8 @@
 package com.Cards.controller;
 
+import com.CardsDTO.CardsDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import com.CardsDTO.CardsDTO;
-import com.TemplateDTO.TemplateDTO;
-
-import java.util.List;
 
 
 @RestController
@@ -26,6 +22,7 @@ public class RestCards {
 
 	@PostMapping(value = "/card")
 	public void postCard(@RequestBody CardsDTO body){
+		sCards.createCard(body);
 	}
 
 	@DeleteMapping(value = "/card/{id}")
@@ -38,4 +35,9 @@ public class RestCards {
 		return sCards.getCardById(id);
 	}
 
+
+	@GetMapping(value = "/find/{userId}/{templateId}")
+	public CardsDTO findCard(@PathVariable String userId, @PathVariable String templateId){
+		return sCards.findCard(userId, templateId);
+	}
 }

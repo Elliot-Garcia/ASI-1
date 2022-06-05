@@ -9,8 +9,8 @@ public class RequestToTemplate {
     final String uri = "localhost:8080/template";
 
     public TemplateDTO getTemplate(int templateId) {
-        String url = uri +"/"+Integer.toString(templateId);
+        String url = uri +"/"+ templateId;
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(uri, TemplateDTO.class);
+        return restTemplate.getForObject(url, TemplateDTO.class);
     }
 }
