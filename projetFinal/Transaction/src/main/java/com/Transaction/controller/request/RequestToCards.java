@@ -14,13 +14,13 @@ public class RequestToCards {
     final String uri = "localhost:8080/cards";
 
     public CardsDTO getCard(int cardId) {
-        String url = uri +"/"+Integer.toString(cardId);
+        String url = uri +"/card/"+Integer.toString(cardId);
         RestTemplate restTemplate = new RestTemplate();
         return restTemplate.getForObject(uri, CardsDTO.class);
     }
 
     public void deleteCard(int cardId){
-        String url = uri +"/"+Integer.toString(cardId);
+        String url = uri +"/card/"+Integer.toString(cardId);
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.delete(uri);
     }
@@ -39,7 +39,7 @@ public class RequestToCards {
         HttpEntity<String> request =
                 new HttpEntity<String>(jsonObject.toString(), headers);
 
-        restTemplate.postForObject(uri, request, CardsDTO.class);
+        restTemplate.postForObject(uri+"/card", request, CardsDTO.class);
     }
 
 }

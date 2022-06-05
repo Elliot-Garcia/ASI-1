@@ -1,34 +1,39 @@
 package com.Cards.controller;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
+import com.CardsDTO.CardsDTO;
 import com.TemplateDTO.TemplateDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 
+@Service
 public class ServiceCards {
-	
-	/**
-	private final RepositoryAccount rAccount;
-	private final RepositoryCards rCards;
-	private final RepositoryTemplates rTemplates;
-	
-	public ServiceCards(RepositoryCards repositoryCards, RepositoryAccount repositoryAccount, RepositoryTemplates repositoryTemplates) {
-		this.rAccount = repositoryAccount;
-		this.rCards = repositoryCards;
-		this.rTemplates = repositoryTemplates;
+
+	@Autowired
+	private RepositoryCards rCards;
+
+	public ServiceCards(RepositoryCards rCards){
+		this.rCards = rCards;
 	}
-	*/
-	
+
+	//TODO Implémenter génération de cartes aléatoires
 	/**
 	 * Initialise les 5 premières cartes d'un utilisateur à la création de son compte à partir d'un tirage aléatoire de Templates.
 	 */
-	public void initCards(int idUser) {
+	/*public void initCards(int idUser) {
 		// init index
 		int i;
-		// Récupération de l'id du User
-		//int idUser = 1;
-	    // Récupération de la liste des ids des Templates des Cartes
-	    List<TemplateDTO> ListIdTemplates = rTemplates.findAll();
+		*//*
+		 Récupération de l'id du User
+		int idUser = 1;
+		 Récupération de la liste des ids des Templates des Cartes
+		*//*
+		List<TemplateDTO> ListIdTemplates = rTemplates.findAll();
 	    int nbTemplates = ListIdTemplates.size();
 	    
 	    for (i = 0; i < 5; i++) {
@@ -36,75 +41,58 @@ public class ServiceCards {
 	    	Template rdTemplateId = ListIdTemplates.get(rd);
 	    	createCard(idUser,rdTemplateId.getIdTemplate());
 	    }
-	}
+	}*/
 	
 	/**
 	 * Créé une carte dans la database pour un utilisateur décrit pas idUser.
-	 * @param idUser
-	 * @param idTemplate
+	 * @param cardsDTO instance de cards à ajouter
 	 */
-	public void createCard(int idUser, int idTemplate) {
-		Cards card = new Cards();
-    	card.setId_User(idUser);
-    	card.setId_Template(idTemplate);
-    	rCards.save(card);
+	public void createCard(CardsDTO cardsDTO) {
+		if(cardsDTO.getId_User() != null && cardsDTO.getId_Template() != null){
+			//TODO Vérifier que les ids existent dans les tables Template et Account
+			rCards.save(cardsDTO);
+		}else{
+			throw new HttpClientErrorException(HttpStatus.UNPROCESSABLE_ENTITY);
+		}
 	}
 	
 	/**
 	 * Supprime de la database la carte décrite par idCard
-	 * @param idCard
+	 * @param sIdCard
 	 */
-	public void deleteCard(int idCard) {
-		Cards card = rCards.findById(idCard).get();
+	public void deleteCard(String sIdCard) {
+		int idCard = Integer.parseInt(sIdCard);
+		CardsDTO card = rCards.findById(idCard).get();
 		rCards.delete(card);
 	}
-	
+
 	/**
-	 * @param idTemplates
-	 * @return Prix d'achat de la carte
+	 *
+	 * @param sIdCard id de la carte
+	 * @return la carte si elle existe
 	 */
-	public int getBuyPrice(int idTemplates) {
-		Optional<Templates> template = rTemplates.findById(idTemplates);
-		return template.get().getBuyPrice();
+	public CardsDTO getCardById(String sIdCard){
+		int idCard = Integer.parseInt(sIdCard);
+		Optional<CardsDTO> oCard = rCards.findById(idCard);
+		if(oCard.isPresent()){
+			return oCard.get();
+		}else{
+			throw new HttpClientErrorException(HttpStatus.NOT_FOUND);
+		}
 	}
 	
 	/**
 	 * 
-	 * @param idTemplates
-	 * @return Prix de vente de la carte
-	 */
-	public int getSellPrice(int idTemplates) {
-		Optional<Templates> template = rTemplates.findById(idTemplates);
-		return template.get().getSellPrice();
-	}
-	
-	/**
-	 * 
-	 * @param idCard
-	 * @return id du Template lié à la carte
-	 */
-	public int getTemplateFromCard(int idCard) {
-		Optional<Cards> card = rCards.findById(idCard);
-		return card.get().getId_Template();
-	}
-	
-	/**
-	 * 
-	 * @param idUser
+	 * @param body body de la requête contenant l'id utilisateur
 	 * @return List des cartes possédées par l'utilisateur décrit pas idUser
 	 */
-	public List<Cards> getListCardsUser(int idUser) {
-		List<Cards> res = rCards.findAllByIdUser(idUser);
-		return res;
-	}
-	
-	/**
-	 * Renvoie toutes les cartes à vendre dans le market
-	 * @return List des cartes dans le templates
-	 */
-	public List<Templates> getListCardsMarket() {
-		List<Templates> res = rTemplates.findAll();
-		return res;
+	public Iterable<CardsDTO> getListCardsUser(CardsDTO body) {
+		if(body.getId_User() != null){
+			int userId = body.getId_User();
+			return rCards.selectCardsByUserId(userId);
+		}else{
+			throw new HttpClientErrorException(HttpStatus.NOT_FOUND);
+		}
 	}
 
 }
