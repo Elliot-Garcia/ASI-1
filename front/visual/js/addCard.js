@@ -5,7 +5,7 @@
 * @return   none
 */
 function POSTHTML(){
-    const GET_CHUCK_URL="localhost:80/"; 
+    const GET_CHUCK_URL="localhost:80/cards/"; 
     const data = getInput();
     console.log(data);
     let context =   {

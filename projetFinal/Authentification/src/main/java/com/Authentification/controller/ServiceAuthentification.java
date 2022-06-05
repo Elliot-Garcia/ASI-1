@@ -1,17 +1,13 @@
 package com.Authentification.controller;
 
-import java.util.Arrays;
-import java.util.List;
-
+import com.AccountDTO.AccountFormDTO;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.AccountDTO.AccountDTO;
-import com.AccountDTO.AccountFormDTO;
+import java.util.Objects;
 
 @Service
 public class ServiceAuthentification {
@@ -29,7 +25,7 @@ public class ServiceAuthentification {
 		String result = restTemplate.getForObject(URL_ACCOUNT, String.class);
 
 		if(!login.contains(" ") && !login.isBlank()) { //Le login est vide ou contient des espaces ?
-			if(!(result == login)) { //result.contains(login)  Le login ne fais pas partit des listes utilisateurs
+			if(!(Objects.equals(result, login))) { //result.contains(login)  Le login ne fais pas partit des listes utilisateurs
 				newUser = new AccountFormDTO(login, password, 5000);
 				System.out.println("user = "+newUser);
 				System.out.println(newUser.getLogin()+" "+newUser.getBalance() +" "+newUser.getPassword());
