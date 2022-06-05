@@ -35,11 +35,11 @@ li {
     text-decoration: none;
 }
   
-#left {
+#account {
     float: left;
 }
 
-#right {
+#userName {
     float: right;
 }
 

@@ -8,7 +8,7 @@
   - Type`DELETE`
   - Chemin `/cards/{cardId}`
 - createCard
-  - Type `POST` 
+  - Type `POST`
   - Chemin `/cards` 
   - Body: `templateId`, `userId`
 
