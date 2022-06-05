@@ -106,4 +106,5 @@ function err_callback(error){
     console.log(error);
 }
 
-//getUserInfo();
+getUserInfo();
+getCardList();
