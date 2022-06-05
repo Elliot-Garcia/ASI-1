@@ -1,14 +1,15 @@
 let cardList = [
         {
-            family_name:"DC Comic",
-            img_src:"http://www.superherobroadband.com/app/themes/superhero/assets/img/superhero.gif",
+            famille:"DC Comic",
+            //img_src:"http://www.superherobroadband.com/app/themes/superhero/assets/img/superhero.gif",
             name:"SUPERMAN",
             description: "The origin story of Superman relates that he was born Kal-El on the planet Krypton, before being rocketed to Earth as an infant by his scientist father Jor-El, moments before Krypton's destruction. Discovered and adopted by a farm couple from Kansas, the child is raised as Clark Kent and imbued with a strong moral compass. Early in his childhood, he displays various superhuman abilities, which, upon reaching maturity, he resolves to use for the benefit of humanity through a 'Superman' identity.",
             hp: 500,
             energy:100,
             attack:50,
             defense: 50,
-            price:200
+            id: 10,
+            BuyPrice:200
         },
         {
             family_name:"DC Comic",
@@ -33,30 +34,34 @@ let cardList = [
             price:250
         },
 
-    ]
-let template = document.querySelector("#row");
+    ];
 
-for(const card of cardList){
-    let clone = document.importNode(template.content, true);
+function editList(cardList){
+    let template = document.querySelector("#row");
 
-    newContent= clone.firstElementChild.innerHTML
-                .replace(/{{family_src}}/g, card.family_src)
-                .replace(/{{family_name}}/g, card.family_name)
-                .replace(/{{img_src}}/g, card.img_src)
-                .replace(/{{name}}/g, card.name)
-                .replace(/{{description}}/g, card.description)
-                .replace(/{{hp}}/g, card.hp)
-                .replace(/{{energy}}/g, card.energy)
-                .replace(/{{attack}}/g, card.attack)
-                .replace(/{{defense}}/g, card.defense)
-                .replace(/{{price}}/g, card.price);
-    clone.firstElementChild.innerHTML= newContent;
+    for(const card of cardList){
+        let clone = document.importNode(template.content, true);
 
-    let cardContainer= document.querySelector("#tableContent");
-    cardContainer.appendChild(clone);
+        newContent= clone.firstElementChild.innerHTML
+                    .replace(/{{family_src}}/g, card.family_src)
+                    .replace(/{{family_name}}/g, card.famille)
+                    .replace(/{{img_src}}/g, card.img_src)
+                    .replace(/{{name}}/g, card.name)
+                    .replace(/{{description}}/g, card.description)
+                    .replace(/{{hp}}/g, card.hp)
+                    .replace(/{{energy}}/g, card.energy)
+                    .replace(/{{attack}}/g, card.attack)
+                    .replace(/{{defense}}/g, card.defense)
+                    .replace(/{{price}}/g, card.BuyPrice)
+                    .replace(/{{id}}/g, card.id) ;
+
+        clone.firstElementChild.innerHTML= newContent;
+        let cardContainer= document.querySelector("#tableContent");
+        cardContainer.appendChild(clone);
+    }
 }
+editList(cardList);
 
-
-
-
-
+function buyCard(id){
+    
+}
