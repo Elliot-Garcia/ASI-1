@@ -4,13 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import com.AccountDTO.AccountFormDTO;
+
 @Entity
 public class AccountBody {
 	@Id
 	@GeneratedValue
 	private Integer id;
 	private String login;
-	private String psw;
+	private String password;
 	private int balance;
 	
 	public AccountBody() {
@@ -20,7 +22,7 @@ public class AccountBody {
 		super();
 		this.id=0;
 		this.login = login;
-		this.psw = psw;
+		this.password = psw;
 		this.balance = balance;
 	}
 
@@ -41,11 +43,11 @@ public class AccountBody {
 	}
 
 	public String getPsw() {
-		return psw;
+		return password;
 	}
 
 	public void setPsw(String psw) {
-		this.psw = psw;
+		this.password = psw;
 	}
 
 	public int getBalance() {
@@ -56,7 +58,12 @@ public class AccountBody {
 		this.balance = balance;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "{id:" + id + ",login:" + login + ",psw:" + password + ",balance:" + balance + "}";
+	}
+
+
 	
 }
 

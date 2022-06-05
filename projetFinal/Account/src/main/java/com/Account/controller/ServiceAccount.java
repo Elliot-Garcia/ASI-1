@@ -57,4 +57,8 @@ public class ServiceAccount {
 	}
 
 
+	public AccountBody AccountForm2Body(AccountFormDTO accountForm) {
+		AccountBody account = new AccountBody(accountForm.getLogin(), accountForm.getPassword(), accountForm.getBalance());
+		return account;
+	}
 }
