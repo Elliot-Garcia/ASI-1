@@ -20,7 +20,7 @@ public class RestCards {
 		return sCards.getListCardsUser(body);
 	}
 
-	@PostMapping(value = "/card")
+	@PostMapping()
 	public void postCard(@RequestBody CardsDTO body){
 		sCards.createCard(body);
 	}

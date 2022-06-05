@@ -22,18 +22,18 @@ public class RestAccount {
 		return sAccount.getUsers();
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/account/{id}")
+	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
 	public AccountBody showUserInfo(@PathVariable String id) {
 		System.out.println("OUI++");
 		return sAccount.getUserInfo(id);
 	}
 
-	 @PostMapping("/account")
+	 @PostMapping("/")
 	 public AccountBody addAccount(@RequestBody AccountFormDTO account) {
 	    return sAccount.addAccount(account);
 	  }
 	
-	 @PutMapping(value = "/account/{id}/balance/{amount}")
+	 @PutMapping(value = "/{id}/balance/{amount}")
 		public AccountBody showUserInfo(@PathVariable String id, @PathVariable String amount) {
 			System.out.println("put");
 			return sAccount.updateBalance(id, amount);

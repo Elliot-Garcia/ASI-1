@@ -20,7 +20,6 @@ public class RestAuthentification {
 
 	@RequestMapping
 	public AccountFormDTO Register(@RequestBody AccountFormDTO account) {
-		System.out.println("OUI");
 		return sAuthentification.VerifyRegister(account.getLogin(), account.getPassword());//sAuthentification.VerifyRegister("test", "testpsw");
 
 	}

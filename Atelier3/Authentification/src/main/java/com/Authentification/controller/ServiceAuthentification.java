@@ -16,8 +16,8 @@ public class ServiceAuthentification {
 	HttpHeaders headers = new HttpHeaders();
 
 	
-	static final String URL_ACCOUNT = "http://localhost:8081";
-	static final String URL_ACCOUNT_POST = "http://localhost:8081/account";
+	static final String URL_ACCOUNT = "http://localhost:80/account";
+	static final String URL_ACCOUNT_POST = "http://localhost:80/account";
 
 	public AccountFormDTO VerifyRegister(String login, String password) {
 		// Send request with GET method and default Headers.
