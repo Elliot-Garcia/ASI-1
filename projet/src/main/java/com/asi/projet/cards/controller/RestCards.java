@@ -2,6 +2,7 @@ package com.asi.projet.cards.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,8 +21,8 @@ public class RestCards {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/deck")
-	public List<Cards> listDeck(@RequestParam int idUser) {
-		return sCards.getListCardsUser(idUser);
+	public List<Cards> listDeck(@RequestBody CardBody idUser) {
+		return sCards.getListCardsUser(idUser.getIdUser());
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/market")

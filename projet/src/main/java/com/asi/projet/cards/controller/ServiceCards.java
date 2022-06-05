@@ -30,11 +30,11 @@ public class ServiceCards {
 	/**
 	 * Initialise les 5 premières cartes d'un utilisateur à la création de son compte à partir d'un tirage aléatoire de Templates.
 	 */
-	public void initCards() {
+	public void initCards(int idUser) {
 		// init index
 		int i;
 		// Récupération de l'id du User
-	    int idUser = 1;//rAccount.getUser();
+		//int idUser = 1;
 	    // Récupération de la liste des ids des Templates des Cartes
 	    List<Templates> ListIdTemplates = rTemplates.findAll();
 	    int nbTemplates = ListIdTemplates.size();
