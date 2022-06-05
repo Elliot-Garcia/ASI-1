@@ -51,36 +51,10 @@ public class ServiceAuthentification {
 			         System.out.println("Something error!");
 			      }
 				
-				//res = rAccount.save(newUser); //TODO: REQUETE AU SERVICE ACCOUT
-				//sCards.initCards(res.getId());
+				
 			}
 		}
-		/**
-		AccountFormDTO res = null;
-		List<String> listLogin = rLogin.getLogin(); //get login d'authentification
-	
-		//return res;
-		 */
+		
 		return newUser;
 	}
 }
-/**	
-	headers.setAccept(Arrays.asList(new MediaType[] { MediaType.APPLICATION_JSON }));
-	// Request to return JSON format
-	headers.setContentType(MediaType.APPLICATION_JSON);
-	//headers.set("my_other_key", "my_other_value");
-
-	// HttpEntity<String>: To get result as String.
-	AccountFormDTO aform; 
-	return null;
-	HttpEntity<AccountFormDTO> entity = new HttpEntity<String>(aform,headers);
-
-	// Send request with GET method, and Headers.
-	
-	ResponseEntity<String> response = restTemplate.postForEntity(URL_ACCOUNT, entity, AccountForm.class);
-	
-//	ResponseEntity<String> response = restTemplate.exchange(URL_ACCOUNT, //
-//			HttpMethod.GET, entity, String.class);
-
-	String result = response.getBody();
-*/
