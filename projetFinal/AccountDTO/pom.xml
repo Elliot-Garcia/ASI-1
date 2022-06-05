@@ -3,11 +3,5 @@
   <groupId>com.AccountDTO</groupId>
   <artifactId>AccountDTO</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-<<<<<<< Updated upstream
-=======
-  <properties>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
-  </properties>
->>>>>>> Stashed changes
+
 </project>

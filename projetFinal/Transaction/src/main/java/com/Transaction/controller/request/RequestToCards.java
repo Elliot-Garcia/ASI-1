@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class RequestToCards {
 
-    final String uri = "localhost:8080/cards";
+    final String uri = "localhost:8082";
 
     /**
      * Send GET card request to Cards Microservice to find card corresponding to card id
