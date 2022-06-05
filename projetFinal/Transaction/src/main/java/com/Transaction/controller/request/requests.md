@@ -10,7 +10,10 @@
 - createCard
   - Type `POST`
   - Chemin `/cards/card` 
-  - Body: `templateId`, `userId`
+  - Body `templateId`, `userId`
+- findCard
+  - Type `GET`
+  - Chemin `/find/{userId}/{templateId}`
 
 ## Requêtes à account
 - getUser (body contient **solde** + ...)

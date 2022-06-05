@@ -12,20 +12,20 @@ public class RequestToAccount {
     final String uri = "localhost:8081/account";
 
     public AccountDTO getAccount(int cardId) {
-        String url = uri +"/"+Integer.toString(cardId);
+        String url = uri +"/"+ cardId;
         RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(uri, AccountDTO.class);
+        return restTemplate.getForObject(url, AccountDTO.class);
     }
 
     public void addBalance(int userId, int amount){
-        String url = uri +"/"+Integer.toString(userId)+"/balance/"+Integer.toString(amount);
+        String url = uri +"/"+ userId +"/balance/"+ amount;
         RestTemplate restTemplate = new RestTemplate();
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         HttpEntity<String> request =
-                new HttpEntity<String>(headers);
+                new HttpEntity<>(headers);
 
         restTemplate.put(url, request);
     }

@@ -66,11 +66,9 @@ public class RestAccontTest {
 	public void addAccount() throws Exception {
 		AccountBody addUser = new AccountBody("unitAdd", "testadd",1000);
 
-		// studentService.addCourse to respond back with mockCourse
 		Mockito.when(
 				sAccount.addAccount(Mockito.any(AccountFormDTO.class))).thenReturn(addUser);
 
-		// Send course as body to /students/Student1/courses
 		RequestBuilder requestBuilder = MockMvcRequestBuilders
 				.post("/account")
 				.accept(MediaType.APPLICATION_JSON).content(exampleAccountJson)
@@ -87,5 +85,5 @@ public class RestAccontTest {
 
 	}
 
-	
+
 }
