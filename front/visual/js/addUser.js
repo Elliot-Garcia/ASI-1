@@ -12,7 +12,7 @@ function POSTHTML(){
 
     delete data["re-password"]; 
     console.log(data);
-    const GET_CHUCK_URL="";
+    const GET_CHUCK_URL="localhost:80/account";
     let context =   {
                         method: 'POST',
                         headers: {
