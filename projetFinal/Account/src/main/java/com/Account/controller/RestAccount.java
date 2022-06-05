@@ -1,32 +1,19 @@
 package com.Account.controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.Account.model.AccountBody;
-import com.AccountDTO.AccountDTO;
 import com.AccountDTO.AccountFormDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
 public class RestAccount {
-	
-	private final ServiceAccount sAccount;
-	
+
 	@Autowired
-	private final RepositoryAccount rAccount;
-	
-	public RestAccount(ServiceAccount serviceAccount, RepositoryAccount repoAccount) {
+	private final ServiceAccount sAccount;
+
+	public RestAccount(ServiceAccount serviceAccount) {
 		this.sAccount = serviceAccount;
-		this.rAccount = repoAccount;
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
