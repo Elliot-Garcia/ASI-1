@@ -9,7 +9,7 @@ function getUserInfo(){
     const id = getIdUser();
    
     if (id == null){
-        location.replace("addUser.html")
+        location.replace("userChoice.html")
         return;
     }
     let URL="" + "/" + id;
@@ -39,6 +39,3 @@ function editUserInfo(userInfo){
 function err_callback(error){
     console.log(error);
 }
-
-
-document.onload = editUserInfo("dfg");
