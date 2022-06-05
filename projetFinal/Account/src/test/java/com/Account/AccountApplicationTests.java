@@ -38,7 +38,7 @@ class AccountApplicationTests {
 	RepositoryAccount rAccount;
 
 	@Test
-	public void addAccount(AccountFormDTO account) {
+	public void addAccount() {
 		System.out.println("test1");
 		AccountFormDTO newUser = new AccountFormDTO("login", "psw", 1000);
 		AccountBody userCreated;
@@ -48,7 +48,7 @@ class AccountApplicationTests {
 	}
 	
 	@Test
-	public void getUserInfo(String id) {
+	public void getUserInfo() {
 		System.out.println("test2");
 		AccountBody newUser = new AccountBody("login", "psw", 1000);
 		when(sAccount.getUserInfo("0")).thenReturn(newUser);
