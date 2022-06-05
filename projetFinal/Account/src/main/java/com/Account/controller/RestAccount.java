@@ -30,7 +30,7 @@ public class RestAccount {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public List<AccountDTO> GetAllAccount() {
+	public Iterable<AccountBody> GetAllAccount() {
 		System.out.println("OUI");
 		return sAccount.getUsers();
 	}
