@@ -1,5 +1,5 @@
 /**
-* Function that POST new cards to the api
+* Function that POST a new user to the api
 * @author   groupe2
 * @param    none
 * @return   none
