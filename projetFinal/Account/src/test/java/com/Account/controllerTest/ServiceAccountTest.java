@@ -1,6 +1,7 @@
 package com.Account.controllerTest;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import org.junit.Test;
@@ -27,13 +28,24 @@ public class ServiceAccountTest {
 
 	@Autowired
 	RepositoryAccount rAccount;
+
 	@Test
 	public void addAccount(AccountFormDTO account) {
-		when(sAccount.addAccount(account)).thenReturn(new AccountBody ( "login", "psw", 1000 ));
+		when(sAccount.addAccount(account)).thenReturn(new AccountBody("login","psw", 1000 ));
 		AccountBody newUser = new AccountBody(account.getLogin(), account.getPassword(), account.getBalance());
-		assertEquals("{id:1, login:login, password:psw, balance:1000}", rAccount.save(newUser));
+		assertEquals(newUser, rAccount.findById(1));
+	}
+		
+	@Test
+	public void getUserInfo(String idUser) {
+		ServiceAccount serviceAccount = mock(ServiceAccount.class);
+		AccountBody newUser = new AccountBody("login", "psw", 1000);
+		when(serviceAccount.getUserInfo(idUser)).thenReturn(newUser);
+		assertEquals(newUser, rAccount.findById(1));
 	}
 	
 }
+
+
 
 

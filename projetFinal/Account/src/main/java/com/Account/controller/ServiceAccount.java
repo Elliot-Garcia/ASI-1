@@ -23,12 +23,9 @@ public class ServiceAccount {
 	}
 
 
-	public List<AccountDTO> getUsers() {
-		/**
-	    List<AccountDTO> listAccount = (List<AccountDTO>) rAccount.findAll();
+	public Iterable<AccountBody> getUsers() {
+		Iterable<AccountBody> listAccount = rAccount.findAll();
 		return listAccount;
-		*/
-		return null;
 		
 	}
 	
