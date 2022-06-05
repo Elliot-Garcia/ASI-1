@@ -33,6 +33,10 @@ public class AccountFormDTO {
 	public void setBalance(int balance) {
 		this.balance = balance;
 	}
+	@Override
+	public String toString() {
+		return "{login:" + login + ",password:" + password + ",balance:" + balance + "}";
+	}
 	
 
 }

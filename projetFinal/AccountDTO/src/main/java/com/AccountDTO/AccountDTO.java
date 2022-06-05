@@ -37,5 +37,9 @@ public class AccountDTO {
 		public void setBalance(int balance) {
 			this.balance = balance;
 		}
+		@Override
+		public String toString() {
+			return "{id:" + id + "login:" + login + ",balance:" + balance + "}";
+		}
 
 }
